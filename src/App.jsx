@@ -1,7 +1,16 @@
+import GlobalStyles from './components/GlobalStyles';
+import AppWrapper from './components/AppWrapper';
+import { AppRouter } from '';
+
+
 function App() {
 
   return (
     <>
+      <GlobalStyles />
+      <AppWrapper>
+        <AppRouter />
+      </AppWrapper>
     </>
   )
 }
