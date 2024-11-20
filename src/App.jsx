@@ -1,4 +1,4 @@
-import GlobalStyles from './components/GlobalStyles';
+import GlobalStyles from './styles/GlobalStyles';
 import AppWrapper from './components/AppWrapper';
 import AppRouter from './routes/AppRouter';
 

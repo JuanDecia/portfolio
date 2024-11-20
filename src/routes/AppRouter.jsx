@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Import Pages and Components
 import NotFound from '../pages/NotFound';
 import Header from "../components/Header";
+import Home from "../pages/Home";
 
 const AppRouter = () => {
 
@@ -15,7 +16,7 @@ const AppRouter = () => {
         <Router>
             <Header />
             <Routes>
-
+                <Route path="/" element={ <Home /> }></Route>
                 {/* Not Found Page */}
                 {/* <Route exact path="*" element={ <NotFound /> } /> */}
             </Routes>
