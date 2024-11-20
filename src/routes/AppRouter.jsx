@@ -7,18 +7,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import Pages and Components
 import NotFound from '../pages/NotFound';
+import Header from "../components/Header";
 
-export const AppRouter = () => {
+const AppRouter = () => {
 
     return (
-
         <Router>
+            <Header />
             <Routes>
 
                 {/* Not Found Page */}
-                <Route exact path="*" element={ <NotFound /> } />
+                {/* <Route exact path="*" element={ <NotFound /> } /> */}
             </Routes>
         </Router>
+    );
+};
 
-    )
-}
+export default AppRouter;

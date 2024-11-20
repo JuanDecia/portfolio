@@ -1,6 +1,6 @@
 import GlobalStyles from './components/GlobalStyles';
 import AppWrapper from './components/AppWrapper';
-import { AppRouter } from '';
+import AppRouter from './routes/AppRouter';
 
 
 function App() {
@@ -15,4 +15,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
