@@ -7,7 +7,7 @@ const Hero = () => {
 
             {/* IMG */}
             <HeroImage>
-                <img />
+                <img src="https://images.unsplash.com/photo-1629904853893-c2c8981a1dc5?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
             </HeroImage>
 
             {/* Content */}
@@ -18,7 +18,10 @@ const Hero = () => {
                     tecnologías modernas. Me apasiona crear soluciones eficientes y
                     atractivas que resuelvan problemas del mundo real.
                 </HeroDescription>
-                <HeroButton href="#contact">Contáctame</HeroButton>
+                <HeroButtonContainer>
+                    <HeroButton herf='#proyects'>Proyectos</HeroButton>
+                    <HeroButton href="#contact">Contáctame</HeroButton>
+                </HeroButtonContainer>
             </HeroContent>
         </HeroContainer>
     );
@@ -29,6 +32,7 @@ const HeroContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
     padding: 2rem;
     background-color: #f4f4f4;
@@ -75,7 +79,13 @@ const HeroDescription = styled.div`
     color: #555;
 `;
 
-// Action optional button
+// Buttons Container
+const HeroButtonContainer = styled.div`
+    display: flex;
+    gap: 30px;
+`;
+
+// Buttons
 const HeroButton = styled.a`
     display: inline-block;
     margin-top: 1rem;
