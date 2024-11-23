@@ -1,38 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 // Components and files import
+import getProjects from '../services/projectApi';
 import Hero from '../components/Hero';
-import projectsData from "../data/projectsData";
 
 const Home = () => {
 
+    // State for storing projects
+    const [projectsData, setProjects] = useState([]);
     const navigate = useNavigate();
 
-    const handleViewMore = (id) => {
-        navigate(`/projects/${id}`)
-    };
+    useEffect( () => {
+        // Call API to get projects
+        const fetchProjects = async () => {
+            const projectsData = await getProjects();
+            console.log(projectsData);
+            setProjects(projectsData);
+        }
+        fetchProjects();
+    }, []);
 
+    const handleViewMore = (id) => {
+        navigate(`/projects/${id}`);
+    };
 
     return (
         <HomeContainer>
             <Hero />
 
             <CardContainer>
-                {projectsData.map((project) => (
-                    <Card key={project.id}>
-                        <CardImage src={project.image} alt={project.name} />
-                        <CardContent>
-                            <CardTitle>{project.name}</CardTitle>
-                            <CardDescription>{project.description}</CardDescription>
-                            <ViewButton onClick={() => handleViewMore(project.id)}>
-                                Ver más
-                            </ViewButton>
-                        </CardContent>
-                    </Card>
-                ))}
-            </CardContainer>
+  {projectsData.length > 0 ? (
+    projectsData.map((project) => (
+      <Card key={project._id}>
+        <CardImage src={project.image} alt={project.name} />
+        <CardContent>
+          <CardTitle>{project.name}</CardTitle>
+          <CardDescription>{project.description}</CardDescription>
+          <ViewButton onClick={() => handleViewMore(project._id)}>
+            Ver más
+          </ViewButton>
+        </CardContent>
+      </Card>
+    ))
+  ) : (
+    <p>No hay proyectos disponibles.</p>
+  )}
+</CardContainer>
         </HomeContainer>
     )
 };
